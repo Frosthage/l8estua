@@ -22,7 +22,15 @@ pub async fn get_latest() -> Result<String, Box<dyn Error>> {
             .collect::<HashSet<&str>>()))
         .next();
 
-    Ok(urlItem.unwrap().link.as_ref().unwrap().clone())
+    let result = urlItem.unwrap().link.as_ref().unwrap().clone();
+
+    Ok(result)
 }
 
+
+#[tokio::test]
+async fn test_something_async() {
+    let result = get_latest().await;
+    assert!(result.is_ok());
+}
 
