@@ -1,5 +1,4 @@
 use worker::*;
-use worker::worker_sys::ResponseInit;
 
 mod utils;
 
